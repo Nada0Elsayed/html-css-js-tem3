@@ -31,7 +31,7 @@ colorsli.forEach(li => {
 let back_g_option = true;
 let back_g_interval;
 let landingpage = document.querySelector('.landing-page');
-let imgsarray = ["../img/23955_original.jpg", "../img/beach-aegean-sea-partly-cloudy-sky-greece.jpg", "../img/dark-sky-1200x800.jpg", "../img/dk5jhcj-e0df30bd-8225-4b4e-ab57-6860884cf467.jpg", "../img/images.jpeg"];
+let imgsarray = ["./img/23955_original.jpg", "./img/beach-aegean-sea-partly-cloudy-sky-greece.jpg", "./img/dark-sky-1200x800.jpg", "./img/dk5jhcj-e0df30bd-8225-4b4e-ab57-6860884cf467.jpg", "./img/images.jpeg"];
 let mainbackop = localStorage.getItem("back_op");
 let mainbackgro = localStorage.getItem("back_gro");
 if (mainbackop !== null) {
@@ -84,22 +84,26 @@ function randomizeimgs() {
 }
 randomizeimgs();
 
-
+//skills section
 let skills = document.querySelector(".skills");
 window.onscroll = function () {
-    let skillsoffsettop = skills.offsetTop;// the distance of skills from top of page
-    let skillsouterheight = skills.offsetHeight;// the height of skills
-    let windowheight = this.innerHeight;// the height of window
-    let windowscrolltop = this.pageYOffset;// the distance of window from top of page .  when we scroll down
-    if (windowscrolltop > (skillsoffsettop + skillsouterheight - windowheight))// when we reach to skills section
-    {
-        // console.log(windowscrolltop);
-        let allskills = document.querySelectorAll(".skill-box .skill-progress span");
-        allskills.forEach(skill => {
-            skill.style.width = skill.dataset.prog;
-        });
+  let skillsoffsettop = skills.offsetTop; // the distance of skills from top of page to end skills
+  let skillsouterheight = skills.offsetHeight; // the height of skills
+  let windowheight = this.innerHeight; // the height of window
+  let windowscrolltop = this.pageYOffset; // the distance of window from top of page .  when we scroll down
+  // if (windowscrolltop > skillsoffsettop + skillsouterheight - windowheight) {
+    // when we reach to end skills section
+    if (windowscrolltop >= (skillsoffsettop + skillsouterheight )/ 2.7) {
+      let allskills = document.querySelectorAll(
+        ".skills .skill-box .skill-progress span"
+      );
+      allskills.forEach((skill) => {
+        skill.style.width = skill.dataset.prog;
+        // skill.scrollIntoView({ behavior: "smooth" });
+      });
     }
-}
+    // console.log(windowheight);
+  }
 
 let ourgallery = document.querySelectorAll(".gallery img");
 ourgallery.forEach(img => {

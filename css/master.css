@@ -186,7 +186,7 @@ header{
 .landing-page{
     min-height: 100vh; /* 100% of the viewport height */
     /* width: 545px; */
-    background-image: url("../img/images.jpeg") ;
+    background-image: url("./img/images.jpeg") ;
     background-size: cover;
     position: relative;
 }
@@ -330,7 +330,7 @@ header{
 .about-us img{
     width: 350px;
 }
-
+/* skills section */
 .skills{
     padding-bottom: 50px;
     padding-top: 50px;
@@ -362,6 +362,15 @@ header{
     position: relative;
     overflow: hidden;
 }
+.skills span{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--main--color);
+    width: 0;
+    transition: all .5s;
+}
 @media (max-width: 767px) {
     .skills .skill-box{
         /* flex-direction: column;
@@ -374,14 +383,6 @@ header{
         width: 100%;
         margin-bottom: 10px;
     }
-}
-.skills span{
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background-color: var(--main--color);
-    transition: all .5s;
 }
 
 .gallery{
